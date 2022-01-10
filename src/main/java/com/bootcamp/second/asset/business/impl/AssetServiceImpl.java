@@ -24,14 +24,14 @@ public class AssetServiceImpl implements AssetService {
 
     @Override
     public Mono<Asset> findById(String assetId) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return assetRepository.findById(assetId);
     }
 
     @Override
     public Flux<Asset> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return assetRepository.findAll();
     }
 
     @Override
@@ -48,8 +48,8 @@ public class AssetServiceImpl implements AssetService {
 
     @Override
     public Flux<Asset> findByOwner(String owner) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return assetRepository.findAssetByOwner(owner);
     }
 
     

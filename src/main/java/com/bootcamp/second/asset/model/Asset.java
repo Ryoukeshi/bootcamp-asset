@@ -25,5 +25,5 @@ public class Asset {
     private String owner;
     private String acc_type;
     private String tr_limit;
-    
+    private String status;
 }
