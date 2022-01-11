@@ -23,7 +23,7 @@ public class Asset {
     private String id = UUID.randomUUID().toString();
     
     private String owner;
-    private String acc_type;
-    private String tr_limit;
+    private String asset_type;
+    private String amount;
     private String status;
 }

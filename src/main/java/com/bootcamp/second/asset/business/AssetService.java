@@ -19,4 +19,5 @@ public interface AssetService {
 
     Flux<Asset> findByOwner(String owner);
 
+    Flux<Asset> findByStatus(String status);
 }

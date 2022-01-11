@@ -3,6 +3,7 @@ package com.bootcamp.second.asset.controller;
 import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,6 +61,14 @@ public class AssetController {
         log.info("----findByOwner----");
 
         return assetService.findByOwner(owner);
+      }
+
+      @GetMapping("/api/assets/findByStatus")
+      public Flux<Asset> findByStatus(@RequestParam ("status") String status){
+
+        log.info("----findByStatus----");
+
+        return assetService.findByOwner(status);
       }
     
       @PutMapping("/api/assets/upd")

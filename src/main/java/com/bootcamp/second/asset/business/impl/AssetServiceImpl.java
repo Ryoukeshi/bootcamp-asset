@@ -42,15 +42,20 @@ public class AssetServiceImpl implements AssetService {
 
     @Override
     public Mono<Asset> remove(String assetId) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        return assetRepository.findById(assetId)
+            .flatMap(p -> assetRepository.deleteById(p.getId().thenReturn(p)));
     }
 
     @Override
     public Flux<Asset> findByOwner(String owner) {
         
-        return assetRepository.findAssetByOwner(owner);
+        return assetRepository.findAssetsByOwner(owner);
     }
 
-    
+    @Override
+    public Flux<Asset> findByStatus(String status) {
+        
+        return assetRepository.findAssetsByStatus(status);
+    }    
 }
