@@ -3,8 +3,6 @@ package com.bootcamp.second.asset.controller;
 import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 
-//import org.apache.log4j.spi.LoggerFactory;
-//import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
