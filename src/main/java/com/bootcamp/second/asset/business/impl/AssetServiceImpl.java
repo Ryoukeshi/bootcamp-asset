@@ -53,7 +53,7 @@ public class AssetServiceImpl implements AssetService {
     @Override
     public Mono<Asset> update(Asset asset) {
         
-        return assetRepository.findById(asset.getId()).flatMap(a -> assetRepository.save(a).thenReturn(a));
+        return assetRepository.findById(asset.getId()).flatMap(a -> assetRepository.save(asset).thenReturn(a));
         //return null;
     }
 
