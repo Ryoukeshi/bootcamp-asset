@@ -3,8 +3,8 @@ package com.bootcamp.second.asset.controller;
 import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 
-import org.apache.log4j.spi.LoggerFactory;
-import org.apache.logging.log4j.Logger;
+//import org.apache.log4j.spi.LoggerFactory;
+//import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +27,6 @@ public class AssetController {
 
     @Autowired
     private AssetService assetService;
-
-    private Logger log;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -63,12 +61,20 @@ public class AssetController {
         return assetService.findByOwner(owner);
       }
 
+      @GetMapping("/api/assets/findByType")
+      public Flux<Asset> findByAssetType(@RequestParam ("type") String asset_type) {
+
+        log.info("----findByAsset_Type----");
+
+        return assetService.findByAsset_Type(asset_type);
+      }
+
       @GetMapping("/api/assets/findByStatus")
       public Flux<Asset> findByStatus(@RequestParam ("status") String status){
 
         log.info("----findByStatus----");
 
-        return assetService.findByOwner(status);
+        return assetService.findByStatus(status);
       }
     
       @PutMapping("/api/assets/upd")
@@ -81,7 +87,7 @@ public class AssetController {
             .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
       }
 
-      @DeleteMapping
+      @DeleteMapping("/api/assets/delete")
       public Mono<ResponseEntity<Asset>> delete(@RequestParam ("id") String assetId){
 
         log.info("----delete----");

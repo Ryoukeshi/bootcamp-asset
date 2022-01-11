@@ -1,0 +1,8 @@
+server:
+    port: 8082
+spring:
+    data:
+        mongodb:
+            # MongoDB
+            uri: "127.0.0.1"
+            database: MongoAssets
