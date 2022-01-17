@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ public class AssetController {
     @Autowired
     private AssetService assetService;
 
-    @PostMapping
+    @PostMapping("/api/assets")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<Asset> create(@RequestBody Asset asset){
 
@@ -35,15 +36,15 @@ public class AssetController {
         return assetService.create(asset);
     }
 
-    @GetMapping("/api/assets/specific")
-    public Mono<Asset> byId(@RequestParam ("id") String id) {
+    @GetMapping("/api/assets/{id}")
+    public Mono<Asset> byId(@PathVariable ("id") String id) {
 
         log.info("----byId----");
 
         return assetService.findById(id);
       }
 
-      @GetMapping("/api/assets/all")
+      @GetMapping("/api/assets")
       public Flux<Asset> findAll() {
 
         log.info("----findAll----");
@@ -75,8 +76,8 @@ public class AssetController {
         return assetService.findByStatus(status);
       }
     
-      @PutMapping("/api/assets/upd")
-      public Mono<ResponseEntity<Asset>> update(@RequestBody Asset asset){
+      @PutMapping("/api/assets/{id}")
+      public Mono<ResponseEntity<Asset>> update(@PathVariable ("id") String id, @RequestBody Asset asset){
 
         log.info("----update----");
 
@@ -85,8 +86,8 @@ public class AssetController {
             .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
       }
 
-      @DeleteMapping("/api/assets/delete")
-      public Mono<ResponseEntity<Asset>> delete(@RequestParam ("id") String assetId){
+      @DeleteMapping("/api/assets/{id}")
+      public Mono<ResponseEntity<Asset>> delete(@PathVariable ("id") String assetId){
 
         log.info("----delete----");
 

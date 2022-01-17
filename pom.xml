@@ -14,10 +14,12 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<sonar.organization>Ryoukeshi</sonar.organization>
+    	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<maven-pmd-plugin.version>3.12.0</maven-pmd-plugin.version>
 		<checkstyle.version>8.40</checkstyle.version>
 		<checkstyle.plugin.version>3.1.2</checkstyle.plugin.version>
-		<jacobo.plugin.version>0.8.6</jacobo.plugin.version>
+		<jacoco.plugin.version>0.8.6</jacoco.plugin.version>
 		<spotbugs.plugin.version>4.2.0</spotbugs.plugin.version>
 		<maven-site.plugin.version>3.9.1</maven-site.plugin.version>
 		<okhtttp3.version>4.2.2</okhtttp3.version>

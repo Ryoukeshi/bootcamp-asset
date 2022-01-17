@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: bootcamp-asset
+    cloud:
+        config:
+            uri: http://localhost:8084
+            username: root
+            password: s3cr3t
+    data:
+        mongodb:
+            # MongoDB
+            uri: "127.0.0.1"
+            database: MongoAssets

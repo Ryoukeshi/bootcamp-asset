@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.40">
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\AssetApplication.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="9" column="1" severity="warning" message="La línea contiene un carácter de tabulación." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="9" column="9" severity="warning" message="method def modifier en el nivel de sangrado 8 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="10" column="1" severity="warning" message="La línea contiene un carácter de tabulación." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="10" column="17" severity="warning" message="method def el descendiente en el nivel de sangrado 16 no está al nivel correcto, 8" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="11" column="1" severity="warning" message="La línea contiene un carácter de tabulación." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="11" column="9" severity="warning" message="method def rcurly en el nivel de sangrado 8 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+</file>
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\business\AssetService.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.business&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="5" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;reactor.core.publisher.Flux&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="22" column="41" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+</file>
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\business\impl\AssetServiceImpl.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.business.impl&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="7" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;org.springframework.beans.factory.annotation.Autowired&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;reactor.core.publisher.Flux&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="75" column="48" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+</file>
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\controller\AssetController.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.controller&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="6" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;org.springframework.beans.factory.annotation.Autowired&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="19" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.extern.slf4j.Slf4j&apos; importación. En caso de ser antes de &apos;org.springframework.web.bind.annotation.RestController&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="19" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;lombok.extern.slf4j.Slf4j&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="32" column="56" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="45" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="47" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="53" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="55" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="56" column="75" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="61" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="63" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="64" column="72" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="69" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="71" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="72" column="78" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="77" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="79" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="80" column="106" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="87" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="89" column="7" severity="warning" message="method def modifier en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="90" column="85" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="97" column="7" severity="warning" message="method def rcurly en el nivel de sangrado 6 no está al nivel correcto, 4" source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+</file>
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\model\Asset.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.model&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="5" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;org.springframework.data.annotation.Id&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.AllArgsConstructor&apos; importación. En caso de ser antes de &apos;org.springframework.data.mongodb.core.mapping.Document&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;lombok.AllArgsConstructor&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="9" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.Getter&apos; importación. En caso de ser antes de &apos;org.springframework.data.mongodb.core.mapping.Document&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.NoArgsConstructor&apos; importación. En caso de ser antes de &apos;org.springframework.data.mongodb.core.mapping.Document&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.Setter&apos; importación. En caso de ser antes de &apos;org.springframework.data.mongodb.core.mapping.Document&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" column="1" severity="warning" message="Orden lexicográfico incorrecto de &apos;lombok.extern.slf4j.Slf4j&apos; importación. En caso de ser antes de &apos;org.springframework.data.mongodb.core.mapping.Document&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="26" column="20" severity="warning" message="Member name &apos;asset_type&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+</file>
+<file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\repository\AssetRepository.java">
+<error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.repository&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="5" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;org.springframework.data.mongodb.repository.ReactiveMongoRepository&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;reactor.core.publisher.Flux&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="79" severity="warning" message="GenericWhitespace &apos;&gt;&apos; should followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck"/>
+<error line="11" column="80" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="15" column="47" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+</file>
+</checkstyle>
