@@ -17,9 +17,9 @@ public interface AssetService {
 
     Mono<Asset> remove(String assetId);
 
-    Flux<Asset> findByOwner(String owner);
+    Flux<Asset> findAssetByOwner(String owner);
 
-    Flux<Asset> findByAsset_Type(String asset_type);
+    Flux<Asset> findAssetByAsset_Type(String asset_type);
 
-    Flux<Asset> findByStatus(String status);
+    Flux<Asset> findAssetByStatus(String status);
 }

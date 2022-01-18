@@ -12,13 +12,13 @@
 <file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\business\AssetService.java">
 <error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.business&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="5" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;reactor.core.publisher.Flux&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="22" column="41" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="22" column="46" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
 </file>
 <file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\business\impl\AssetServiceImpl.java">
 <error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.business.impl&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="7" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;org.springframework.beans.factory.annotation.Autowired&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="11" column="1" severity="warning" message="Separación extra en el grupo de importación antes &apos;reactor.core.publisher.Flux&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="75" column="48" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="75" column="53" severity="warning" message="Parameter name &apos;asset_type&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
 </file>
 <file name="C:\Users\rrabines\Documents\bootcamp-asset\src\main\java\com\bootcamp\second\asset\controller\AssetController.java">
 <error line="1" column="9" severity="warning" message="El nombre &apos;com.bootcamp.second.asset.controller&apos; debe coincidir con el patrón &apos;com\.tdp\.ms\.*(\.[a-z][a-zA-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>

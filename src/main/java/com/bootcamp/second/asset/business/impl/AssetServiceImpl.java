@@ -66,19 +66,19 @@ public class AssetServiceImpl implements AssetService {
     }
 
     @Override
-    public Flux<Asset> findByOwner(String owner) {
+    public Flux<Asset> findAssetByOwner(String owner) {
         
         return assetRepository.findAssetsByOwner(owner);
     }
 
     @Override
-    public Flux<Asset> findByAsset_Type(String asset_type) {
+    public Flux<Asset> findAssetByAsset_Type(String asset_type) {
         
         return assetRepository.findAssetsByAsset_Type(asset_type);
     }
 
     @Override
-    public Flux<Asset> findByStatus(String status) {
+    public Flux<Asset> findAssetByStatus(String status) {
         
         return assetRepository.findAssetsByStatus(status);
     }    

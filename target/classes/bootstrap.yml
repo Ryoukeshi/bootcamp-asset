@@ -9,5 +9,5 @@ spring:
     data:
         mongodb:
             # MongoDB
-            uri: "127.0.0.1"
+            uri: mongodb://host:127.0.0.1/db
             database: MongoAssets

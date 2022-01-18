@@ -57,7 +57,7 @@ public class AssetController {
 
         log.info("----findByOwner----");
 
-        return assetService.findByOwner(owner);
+        return assetService.findAssetByOwner(owner);
       }
 
       @GetMapping("/api/assets/findByType")
@@ -65,7 +65,7 @@ public class AssetController {
 
         log.info("----findByAsset_Type----");
 
-        return assetService.findByAsset_Type(asset_type);
+        return assetService.findAssetByAsset_Type(asset_type);
       }
 
       @GetMapping("/api/assets/findByStatus")
@@ -73,7 +73,7 @@ public class AssetController {
 
         log.info("----findByStatus----");
 
-        return assetService.findByStatus(status);
+        return assetService.findAssetByStatus(status);
       }
     
       @PutMapping("/api/assets/{id}")
