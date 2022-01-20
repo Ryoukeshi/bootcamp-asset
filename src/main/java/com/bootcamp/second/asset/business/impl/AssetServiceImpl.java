@@ -22,7 +22,7 @@ public class AssetServiceImpl implements AssetService {
     
     @Override
     public Mono<Asset> create(Asset asset) {
-        /*
+        
         if(!asset.getAsset_type().isBlank() && !asset.getOwner().isBlank()){
             return webClient.get()
                 .uri(uriBuilder -> uriBuilder.queryParam("owner", asset.getOwner(), 
@@ -31,11 +31,15 @@ public class AssetServiceImpl implements AssetService {
                     uriBuilder.queryParam("status", asset.getStatus())))
                 .build())
                 .retrieve()
-                .bodyToMono(Asset.class)
-                .flatMap(assetRepository.save(asset));
-        }*/
+                .bodyToFlux(Asset.class)
+                .next()
+                .flatMap(a -> {
+                    return assetRepository.save(asset);
+                });
+                //.flatMap(assetRepository.save(asset));
+        }
         
-        return assetRepository.insert(asset);
+        return assetRepository.save(asset);
     }
 
     @Override
@@ -54,7 +58,6 @@ public class AssetServiceImpl implements AssetService {
     public Mono<Asset> update(Asset asset) {
         
         return assetRepository.findById(asset.getId()).flatMap(a -> assetRepository.save(asset).thenReturn(a));
-        //return null;
     }
 
     @Override
