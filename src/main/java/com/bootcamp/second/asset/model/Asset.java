@@ -9,13 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Slf4j
 @Document(collection = "assets")
 public class Asset {
 
@@ -23,7 +21,7 @@ public class Asset {
     private String id = UUID.randomUUID().toString();
     
     private String owner;
-    private String acc_type;
-    private String tr_limit;
-    
+    private String asset_type;
+    private String amount;
+    private String status;
 }
