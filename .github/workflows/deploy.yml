@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  build:
-
+  build-and-push:
+    name: build-and-push
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,3 +55,21 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+        
+  deploy-to-cluster:
+    name: deploy to cluster
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: deploy to cluster
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          command: set image --record deployment/bootcamp-asset bootcamp-asset=bonfaier/bootcamp-asset:main
+      - name: verify deployment
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          version: v1.21.0
+          command: rollout status deployment/config
