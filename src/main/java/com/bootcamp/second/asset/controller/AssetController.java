@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,6 +28,7 @@ public class AssetController {
     @Autowired
     private AssetService assetService;
 
+    @CircuitBreaker(name = "createAssetCB", fallbackMethod = "fallBackCreateAsset")
     @PostMapping("/api/assets")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<Asset> create(@RequestBody Asset asset){
@@ -36,6 +38,7 @@ public class AssetController {
         return assetService.create(asset);
     }
 
+    @CircuitBreaker(name = "findAssetCB", fallbackMethod = "fallBackFindAsset")
     @GetMapping("/api/assets/{id}")
     public Mono<Asset> byId(@PathVariable ("id") String id) {
 
@@ -76,6 +79,7 @@ public class AssetController {
         return assetService.findAssetByStatus(status);
       }
     
+      @CircuitBreaker(name = "updateAssetCB", fallbackMethod = "fallBackUpdateAsset")
       @PutMapping("/api/assets/{id}")
       public Mono<ResponseEntity<Asset>> update(@PathVariable ("id") String id, @RequestBody Asset asset){
 
@@ -86,6 +90,7 @@ public class AssetController {
             .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
       }
 
+      @CircuitBreaker(name = "deleteAssetCB", fallbackMethod = "fallBackDeleteAsset")
       @DeleteMapping("/api/assets/{id}")
       public Mono<ResponseEntity<Asset>> delete(@PathVariable ("id") String assetId){
 
@@ -94,5 +99,26 @@ public class AssetController {
         return assetService.remove(assetId)
             .flatMap(asset -> Mono.just(ResponseEntity.ok(asset)))
             .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+      }
+
+      public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody Asset asset, RuntimeException ex){
+        return Mono.just(ResponseEntity.ok().body("---Error while creating asset with type: " 
+          + asset.getAsset_type() + " not available---"));
+      }
+
+      public Mono<ResponseEntity<String>> fallBackFindAsset(@PathVariable String id, RuntimeException ex){
+        return Mono.just(ResponseEntity.ok().body("---Error while finding asset with id: "
+          + id + " not available---"));
+      }
+
+      public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody Asset asset, 
+                                                                  RuntimeException ex){
+        return Mono.just(ResponseEntity.ok().body("---Error while updating asset with id: " 
+          + id + ", owner: " + asset.getOwner() + " not available---"));
+      }
+
+      public Mono<ResponseEntity<String>> fallBackDeleteAsset(@PathVariable String id, RuntimeException ex){
+        return Mono.just(ResponseEntity.ok().body("---Error while deleting asset with id: " 
+        + id + " not available---"));
       }
 }
