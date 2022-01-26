@@ -66,10 +66,10 @@ jobs:
         uses: steebchen/kubectl@v2.0.0
         with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
-          command: set image --record deployment/asset asset=bonfaier/asset:main
+          command: set image --record deployment/assetservice assetservice=bonfaier/bootcamp-asset:main
       - name: verify deployment
         uses: steebchen/kubectl@v2.0.0
         with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: v1.21.0
-          command: rollout status deployment/asset
+          command: rollout status deployment/assetservice
