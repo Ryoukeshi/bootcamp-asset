@@ -20,8 +20,7 @@ public class AssetServiceImpl implements AssetService {
     @Autowired
     private AssetRepository assetRepository;
 
-    @Autowired
-    private WebClient webClient;
+
     
     @Override
     public Mono<AssetDTO> create(AssetDTO assetDTO) {
