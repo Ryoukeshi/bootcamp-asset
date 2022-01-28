@@ -10,9 +10,8 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface AssetRepository extends ReactiveMongoRepository<Asset, String>{
 
-    Flux<Asset> findAssetsByOwner(String owner);
+    Flux<Asset> findByOwner(String owner);
 
-    Flux<Asset> findAssetsByAsset_Type(String asset_type);
+    Flux<Asset> findByAssetType(String asset_type);
 
-    Flux<Asset> findAssetsByStatus(String owner);
 }

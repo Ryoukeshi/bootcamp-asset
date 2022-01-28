@@ -3,6 +3,6 @@ spring:
         name: bootcamp-asset
     cloud:
         config:
-            uri: http://localhost:8084
+            uri: http://20.85.248.244:8084
             username: root
             password: s3cr3t
