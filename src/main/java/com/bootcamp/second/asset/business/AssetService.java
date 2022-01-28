@@ -2,24 +2,23 @@ package com.bootcamp.second.asset.business;
 
 import com.bootcamp.second.asset.model.Asset;
 
+import com.bootcamp.second.asset.model.AssetDTO;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface AssetService {
 
-    Mono<Asset> create(Asset asset);
+    Mono<AssetDTO> create(AssetDTO asset);
 
-    Mono<Asset> findById(String assetId);
+    Mono<AssetDTO> findById(String assetId);
 
-    Flux<Asset> findAll();
+    Flux<AssetDTO> findAll();
 
-    Mono<Asset> update(Asset asset);
+    Mono<AssetDTO> update(AssetDTO asset);
 
-    Mono<Asset> remove(String assetId);
+    Mono<AssetDTO> remove(String assetId);
 
-    Flux<Asset> findAssetByOwner(String owner);
+    Flux<AssetDTO> findAssetByOwner(String owner);
 
-    Flux<Asset> findAssetByAsset_Type(String asset_type);
-
-    Flux<Asset> findAssetByStatus(String status);
+    Flux<AssetDTO> findAssetByAssetType(String asset_type);
 }

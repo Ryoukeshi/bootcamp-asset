@@ -1,9 +1,24 @@
 package com.bootcamp.second.asset.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Client {
+
+    private String id;
     private String name;
-    private String last_name;
+    private String lastName;
     private String clientType;
-    private String documentNumber;
+    private String clientProfile;
     private String documentType;
+    private String documentNumber;
+    private String phoneNumber;
+    private boolean debt;
+    private String status;
 }

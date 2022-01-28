@@ -1,5 +1,6 @@
 package com.bootcamp.second.asset.model;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -18,18 +19,25 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "assets")
 public class Asset {
 
+    @Field(name = "id")
     @Id
     private String id = UUID.randomUUID().toString();
 
     @Field(name = "owner")
-    private String owner;
+    private Client owner;
 
     @Field(name = "asset_type")
-    private String asset_type;
+    private String assetType;
 
-    @Field(name = "amount")
-    private String amount;
+    @Field(name = "totalAmount")
+    private String totalAmount;
+
+    @Field(name = "availableAmount")
+    private String availableAmount;
 
     @Field(name = "status")
     private String status;
+
+    @Field(name = "operations")
+    private ArrayList<Operation> operations;
 }

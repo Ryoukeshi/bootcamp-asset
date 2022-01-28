@@ -3,6 +3,7 @@ package com.bootcamp.second.asset.controller;
 import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 
+import com.bootcamp.second.asset.model.AssetDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class AssetController {
     @CircuitBreaker(name = "createAssetCB", fallbackMethod = "fallBackCreateAsset")
     @PostMapping("/api/assets")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<Asset> create(@RequestBody Asset asset){
+    public Mono<AssetDTO> create(@RequestBody AssetDTO asset){
 
       log.info("----create----");
 
@@ -40,7 +41,7 @@ public class AssetController {
 
     @CircuitBreaker(name = "findAssetCB", fallbackMethod = "fallBackFindAsset")
     @GetMapping("/api/assets/{id}")
-    public Mono<Asset> byId(@PathVariable ("id") String id) {
+    public Mono<AssetDTO> byId(@PathVariable ("id") String id) {
 
       log.info("----byId----");
 
@@ -49,7 +50,7 @@ public class AssetController {
 
     @CircuitBreaker(name = "findAllAssetsCB", fallbackMethod = "fallBackFindAllAssets")
     @GetMapping("/api/assets")
-    public Flux<Asset> findAll() {
+    public Flux<AssetDTO> findAll() {
 
       log.info("----findAll----");
 
@@ -57,7 +58,7 @@ public class AssetController {
     }
 
     @GetMapping("/api/assets/findByOwner")
-    public Flux<Asset> findByOwner(@RequestParam ("owner") String owner){
+    public Flux<AssetDTO> findByOwner(@RequestParam ("owner") String owner){
 
       log.info("----findByOwner----");
 
@@ -65,24 +66,16 @@ public class AssetController {
     }
 
     @GetMapping("/api/assets/findByType")
-    public Flux<Asset> findByAssetType(@RequestParam ("type") String asset_type) {
+    public Flux<AssetDTO> findByAssetType(@RequestParam ("type") String asset_type) {
 
       log.info("----findByAsset_Type----");
 
-        return assetService.findAssetByAsset_Type(asset_type);
-    }
-
-    @GetMapping("/api/assets/findByStatus")
-    public Flux<Asset> findByStatus(@RequestParam ("status") String status){
-
-      log.info("----findByStatus----");
-
-      return assetService.findAssetByStatus(status);
+        return assetService.findAssetByAssetType(asset_type);
     }
     
     @CircuitBreaker(name = "updateAssetCB", fallbackMethod = "fallBackUpdateAsset")
     @PutMapping("/api/assets/{id}")
-    public Mono<ResponseEntity<Asset>> update(@PathVariable ("id") String id, @RequestBody Asset asset){
+    public Mono<ResponseEntity<AssetDTO>> update(@PathVariable ("id") String id, @RequestBody AssetDTO asset){
 
       log.info("----update----");
 
@@ -93,7 +86,7 @@ public class AssetController {
 
     @CircuitBreaker(name = "deleteAssetCB", fallbackMethod = "fallBackDeleteAsset")
     @DeleteMapping("/api/assets/{id}")
-    public Mono<ResponseEntity<Asset>> delete(@PathVariable ("id") String assetId){
+    public Mono<ResponseEntity<AssetDTO>> delete(@PathVariable ("id") String assetId){
 
       log.info("----delete----");
 
@@ -104,7 +97,7 @@ public class AssetController {
 
     public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody Asset asset, RuntimeException ex){
       return Mono.just(ResponseEntity.ok().body("---Error while creating asset with type: " 
-        + asset.getAsset_type() + " not available---"));
+        + asset.getAssetType() + " not available---"));
     }
 
     public Mono<ResponseEntity<String>> fallBackFindAsset(@PathVariable String id, RuntimeException ex){
