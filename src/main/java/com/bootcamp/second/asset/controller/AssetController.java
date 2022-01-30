@@ -95,7 +95,7 @@ public class AssetController {
           .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
-    public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody Asset asset, RuntimeException ex){
+    public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody AssetDTO asset, RuntimeException ex){
       return Mono.just(ResponseEntity.ok().body("---Error while creating asset with type: " 
         + asset.getAssetType() + " not available---"));
     }
@@ -109,7 +109,7 @@ public class AssetController {
       return Mono.just(ResponseEntity.ok().body("---Error while finding assets not available---"));
     }
 
-    public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody Asset asset, 
+    public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody AssetDTO asset,
                                                                 RuntimeException ex){
       return Mono.just(ResponseEntity.ok().body("---Error while updating asset with id: " 
         + id + ", owner: " + asset.getOwner() + " not available---"));

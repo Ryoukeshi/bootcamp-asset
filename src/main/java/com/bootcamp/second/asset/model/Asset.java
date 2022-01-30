@@ -21,7 +21,7 @@ public class Asset {
 
     @Field(name = "id")
     @Id
-    private String id = UUID.randomUUID().toString();
+    private String id;
 
     @Field(name = "owner")
     private Client owner;
