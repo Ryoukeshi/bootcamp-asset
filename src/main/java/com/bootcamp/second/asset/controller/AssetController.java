@@ -4,6 +4,7 @@ import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 
 import com.bootcamp.second.asset.model.AssetDTO;
+import com.bootcamp.second.asset.model.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,7 +59,7 @@ public class AssetController {
     }
 
     @GetMapping("/api/assets/findByOwner")
-    public Flux<AssetDTO> findByOwner(@RequestParam ("owner") String owner){
+    public Flux<AssetDTO> findByOwner(@RequestBody Client owner){
 
       log.info("----findByOwner----");
 
@@ -79,7 +80,7 @@ public class AssetController {
 
       log.info("----update----");
 
-      return assetService.update(asset)
+      return assetService.update(id, asset)
           .flatMap(assetUpdate -> Mono.just(ResponseEntity.ok(assetUpdate)))
           .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
@@ -95,7 +96,7 @@ public class AssetController {
           .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
-    public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody Asset asset, RuntimeException ex){
+    public Mono<ResponseEntity<String>> fallBackCreateAsset(@RequestBody AssetDTO asset, RuntimeException ex){
       return Mono.just(ResponseEntity.ok().body("---Error while creating asset with type: " 
         + asset.getAssetType() + " not available---"));
     }
@@ -109,7 +110,7 @@ public class AssetController {
       return Mono.just(ResponseEntity.ok().body("---Error while finding assets not available---"));
     }
 
-    public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody Asset asset, 
+    public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody AssetDTO asset,
                                                                 RuntimeException ex){
       return Mono.just(ResponseEntity.ok().body("---Error while updating asset with id: " 
         + id + ", owner: " + asset.getOwner() + " not available---"));
