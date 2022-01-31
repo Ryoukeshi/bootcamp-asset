@@ -130,7 +130,7 @@ class AssetControllerTest {
                                                     .exchange();
 
         responseSpec.expectStatus().isOk().expectHeader().contentType(MediaType.APPLICATION_JSON);
-        responseSpec.expectBody().jsonPath("$id").isEqualTo(assetDTO.getId());
+        responseSpec.expectBody().jsonPath("$.id").isEqualTo(assetDTO.getId());
     }
 
     @Test
@@ -145,16 +145,17 @@ class AssetControllerTest {
 
         responseSpec.expectStatus().isOk()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON);
+        //Assertions.assertNotNull(assetController.findAll());
     }
 
     @Test
     @DisplayName("GET -> /api/assets/findByOwner")
     void findByOwner() {
-        when(assetService.findAssetByOwner(client)).thenReturn(Flux.just(assetDTO));
+        when(assetService.findAssetByName(name)).thenReturn(Flux.just(assetDTO));
 
         WebTestClient.ResponseSpec responseSpec = webTestClient
                                                     .get()
-                                                    .uri("/api/assets/findByOwner" + "?type=" + assetType)
+                                                    .uri("/api/assets/findByOwner" + "?name=" + name)
                                                     .accept(MediaType.APPLICATION_JSON)
                                                     .exchange();
 

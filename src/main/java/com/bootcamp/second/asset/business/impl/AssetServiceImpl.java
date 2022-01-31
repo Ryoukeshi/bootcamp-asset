@@ -47,7 +47,7 @@ public class AssetServiceImpl implements AssetService {
     public Flux<AssetDTO> findAll() {
         
         return assetRepository.findAll()
-                .filter(a -> a.getStatus().equalsIgnoreCase(""))
+                .filter(a -> a.getStatus().equalsIgnoreCase(Constants.ACTIVE.name()))
                 .map(ConversionUtils::entityToAssetDto);
     }
 
@@ -73,9 +73,9 @@ public class AssetServiceImpl implements AssetService {
     }
 
     @Override
-    public Flux<AssetDTO> findAssetByOwner(Client owner) {
+    public Flux<AssetDTO> findAssetByName(String name) {
         
-        return assetRepository.findByOwner(owner)
+        return assetRepository.findByOwner_Name(name)
                 .switchIfEmpty(Flux.empty())
                 .filter(a -> a.getStatus().equalsIgnoreCase(Constants.ACTIVE.name()))
                 .map(ConversionUtils::entityToAssetDto);

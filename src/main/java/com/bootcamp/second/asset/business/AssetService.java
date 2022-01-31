@@ -19,7 +19,7 @@ public interface AssetService {
 
     Mono<AssetDTO> remove(String assetId);
 
-    Flux<AssetDTO> findAssetByOwner(Client owner);
+    Flux<AssetDTO> findAssetByName(String name);
 
     Flux<AssetDTO> findAssetByAssetType(String asset_type);
 }

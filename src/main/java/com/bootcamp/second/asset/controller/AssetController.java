@@ -59,11 +59,11 @@ public class AssetController {
     }
 
     @GetMapping("/api/assets/findByOwner")
-    public Flux<AssetDTO> findByOwner(@RequestBody Client owner){
+    public Flux<AssetDTO> findByOwner(@RequestParam String name){
 
       log.info("----findByOwner----");
 
-      return assetService.findAssetByOwner(owner);
+      return assetService.findAssetByName(name);
     }
 
     @GetMapping("/api/assets/findByType")
@@ -106,8 +106,8 @@ public class AssetController {
         + id + " not available---"));
     }
 
-    public Mono<ResponseEntity<String>> fallBackFindAllAssets(RuntimeException ex){
-      return Mono.just(ResponseEntity.ok().body("---Error while finding assets not available---"));
+    public Flux<ResponseEntity<String>> fallBackFindAllAssets(RuntimeException ex){
+      return Flux.just(ResponseEntity.ok().body("---Error while finding assets not available---"));
     }
 
     public Mono<ResponseEntity<String>> fallBackUpdateAsset(@PathVariable String id, @RequestBody AssetDTO asset,
