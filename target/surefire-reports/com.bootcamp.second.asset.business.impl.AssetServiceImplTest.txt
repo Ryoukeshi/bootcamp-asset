@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bootcamp.second.asset.business.impl.AssetServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.89 s - in com.bootcamp.second.asset.business.impl.AssetServiceImplTest

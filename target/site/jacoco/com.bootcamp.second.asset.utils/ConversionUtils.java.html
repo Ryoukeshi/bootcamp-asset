@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConversionUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">asset</a> &gt; <a href="index.source.html" class="el_package">com.bootcamp.second.asset.utils</a> &gt; <span class="el_source">ConversionUtils.java</span></div><h1>ConversionUtils.java</h1><pre class="source lang-java linenums">package com.bootcamp.second.asset.utils;
+
+import com.bootcamp.second.asset.model.Asset;
+import com.bootcamp.second.asset.model.AssetDTO;
+import org.springframework.beans.BeanUtils;
+import reactor.core.publisher.Mono;
+
+<span class="nc" id="L8">public class ConversionUtils {</span>
+
+    public static AssetDTO entityToAssetDto(Asset asset){
+<span class="nc" id="L11">        AssetDTO assetDTO = new AssetDTO();</span>
+<span class="nc" id="L12">        BeanUtils.copyProperties(asset, assetDTO);</span>
+<span class="nc" id="L13">        return assetDTO;</span>
+    }
+
+    public static Asset assetDtoToEntity(AssetDTO assetDTO){
+<span class="nc" id="L17">        Asset asset = new Asset();</span>
+<span class="nc" id="L18">        BeanUtils.copyProperties(assetDTO, asset);</span>
+<span class="nc" id="L19">        return asset;</span>
+    }
+
+    public static Mono&lt;AssetDTO&gt; createAssetEntity(AssetDTO assetDTO){
+<span class="nc" id="L23">        AssetDTO modifiedAssetDTO = new AssetDTO();</span>
+<span class="nc" id="L24">        BeanUtils.copyProperties(assetDTO, modifiedAssetDTO);</span>
+<span class="nc" id="L25">        modifiedAssetDTO.setStatus(Constants.ACTIVE.name());</span>
+<span class="nc" id="L26">        return Mono.just(modifiedAssetDTO);</span>
+    }
+
+    public static Mono&lt;AssetDTO&gt; updateAssetEntity(AssetDTO assetDTO, String id){
+<span class="nc" id="L30">        AssetDTO modifiedAssetDTO = new AssetDTO();</span>
+<span class="nc" id="L31">        BeanUtils.copyProperties(assetDTO, modifiedAssetDTO);</span>
+<span class="nc" id="L32">        modifiedAssetDTO.setId(id);</span>
+<span class="nc" id="L33">        return Mono.just(modifiedAssetDTO);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

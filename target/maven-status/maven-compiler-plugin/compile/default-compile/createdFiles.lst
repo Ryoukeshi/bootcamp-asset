@@ -1,6 +1,6 @@
 com\bootcamp\second\asset\business\AssetService.class
-com\bootcamp\second\asset\repository\AssetRepository.class
 com\bootcamp\second\asset\controller\AssetController.class
 com\bootcamp\second\asset\AssetApplication.class
 com\bootcamp\second\asset\business\impl\AssetServiceImpl.class
 com\bootcamp\second\asset\model\Asset.class
+com\bootcamp\second\asset\repository\AssetRepository.class
