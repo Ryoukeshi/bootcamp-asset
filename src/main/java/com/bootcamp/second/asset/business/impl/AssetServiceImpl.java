@@ -3,6 +3,7 @@ package com.bootcamp.second.asset.business.impl;
 import com.bootcamp.second.asset.business.AssetService;
 import com.bootcamp.second.asset.model.Asset;
 import com.bootcamp.second.asset.model.AssetDTO;
+import com.bootcamp.second.asset.model.Client;
 import com.bootcamp.second.asset.repository.AssetRepository;
 
 import com.bootcamp.second.asset.utils.Constants;
@@ -51,11 +52,11 @@ public class AssetServiceImpl implements AssetService {
     }
 
     @Override
-    public Mono<AssetDTO> update(AssetDTO asset) {
+    public Mono<AssetDTO> update(String id, AssetDTO asset) {
         
-        return assetRepository.findById(asset.getId())
+        return assetRepository.findById(id)
                 .switchIfEmpty(Mono.empty())
-                .flatMap(a -> ConversionUtils.updateAssetEntity(asset, asset.getId()))
+                .flatMap(a -> ConversionUtils.updateAssetEntity(asset, id))
                 .map(ConversionUtils::assetDtoToEntity)
                 .flatMap(assetRepository::save)
                 .map(ConversionUtils::entityToAssetDto);
@@ -72,7 +73,7 @@ public class AssetServiceImpl implements AssetService {
     }
 
     @Override
-    public Flux<AssetDTO> findAssetByOwner(String owner) {
+    public Flux<AssetDTO> findAssetByOwner(Client owner) {
         
         return assetRepository.findByOwner(owner)
                 .switchIfEmpty(Flux.empty())

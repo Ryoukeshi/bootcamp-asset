@@ -5,6 +5,7 @@ import com.bootcamp.second.asset.model.Asset;
 import com.bootcamp.second.asset.model.AssetDTO;
 import com.bootcamp.second.asset.model.Client;
 import com.bootcamp.second.asset.model.Operation;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -115,12 +117,20 @@ class AssetControllerTest {
         BeanUtils.copyProperties(assetDTO, asset);
         assetDTOList.add(assetDTO);
     }
-    @Test
-    void create() {
-    }
 
     @Test
+    @DisplayName("GET -> /api/assets/{id}")
     void byId() {
+        when(assetService.findById(assetId)).thenReturn(Mono.just(assetDTO));
+
+        WebTestClient.ResponseSpec responseSpec = webTestClient
+                                                    .get()
+                                                    .uri("/api/assets/" + assetId)
+                                                    .accept(MediaType.APPLICATION_JSON)
+                                                    .exchange();
+
+        responseSpec.expectStatus().isOk().expectHeader().contentType(MediaType.APPLICATION_JSON);
+        responseSpec.expectBody().jsonPath("$id").isEqualTo(assetDTO.getId());
     }
 
     @Test
@@ -132,45 +142,70 @@ class AssetControllerTest {
                 .uri("/api/assets")
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange();
+
+        responseSpec.expectStatus().isOk()
+                .expectHeader().contentType(MediaType.APPLICATION_JSON);
     }
 
     @Test
+    @DisplayName("GET -> /api/assets/findByOwner")
     void findByOwner() {
+        when(assetService.findAssetByOwner(client)).thenReturn(Flux.just(assetDTO));
+
+        WebTestClient.ResponseSpec responseSpec = webTestClient
+                                                    .get()
+                                                    .uri("/api/assets/findByOwner" + "?type=" + assetType)
+                                                    .accept(MediaType.APPLICATION_JSON)
+                                                    .exchange();
+
+        responseSpec.expectStatus().isOk()
+                .expectHeader().contentType(MediaType.APPLICATION_JSON);
     }
 
     @Test
+    @DisplayName("GET -> /api/assets/findByAssetType")
     void findByAssetType() {
+        when(assetService.findAssetByAssetType(assetType)).thenReturn(Flux.just(assetDTO));
+
+        WebTestClient.ResponseSpec responseSpec = webTestClient
+                                                    .get()
+                                                    .uri("/api/assets/findByType" + "?type=" + assetType)
+                                                    .accept(MediaType.APPLICATION_JSON)
+                                                    .exchange();
+
+        responseSpec.expectStatus().isOk()
+                .expectHeader().contentType(MediaType.APPLICATION_JSON);
     }
 
     @Test
-    void findByStatus() {
-    }
-
-    @Test
+    @DisplayName("PUT -> /api/assets/{id}")
     void update() {
-    }
-
-    @Test
-    void delete() {
+        when(assetService.update(assetId, assetDTO)).thenReturn(Mono.just(assetDTO));
+        Assertions.assertNotNull(assetController.update(assetId, assetDTO));
     }
 
     @Test
     void fallBackCreateAsset() {
+        Assertions.assertNotNull(assetController.fallBackCreateAsset(assetDTO, new RuntimeException("")));
     }
 
     @Test
     void fallBackFindAsset() {
+        Assertions.assertNotNull(assetController.fallBackFindAsset(assetId, new RuntimeException("")));
     }
 
     @Test
     void fallBackFindAllAssets() {
+        Assertions.assertNotNull(assetController.fallBackFindAllAssets(new RuntimeException("")));
     }
 
     @Test
     void fallBackUpdateAsset() {
+        Assertions.assertNotNull(assetController.fallBackUpdateAsset(assetId, assetDTO, new RuntimeException("")));
     }
 
     @Test
     void fallBackDeleteAsset() {
+        Assertions.assertNotNull(assetController.fallBackDeleteAsset(assetId, new RuntimeException("")));
     }
 }
