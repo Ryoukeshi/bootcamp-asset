@@ -114,6 +114,14 @@ class AssetControllerTest {
         assetDTO.setOperations(operationsList);
         assetDTO.setStatus(assetStatus);
 
+        asset.getId();
+        asset.getOwner();
+        asset.getAssetType();
+        asset.getTotalAmount();
+        asset.getAvailableAmount();
+        asset.getOperations();
+        asset.getStatus();
+
         BeanUtils.copyProperties(assetDTO, asset);
         assetDTOList.add(assetDTO);
     }

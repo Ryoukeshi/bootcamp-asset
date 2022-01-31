@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bootcamp.second.asset.controller.AssetControllerTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.91 s - in com.bootcamp.second.asset.controller.AssetControllerTest
