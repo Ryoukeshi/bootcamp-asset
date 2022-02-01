@@ -59,7 +59,7 @@ public class AssetController {
     }
 
     @GetMapping("/api/assets/findByOwner")
-    public Flux<AssetDTO> findByOwner(@RequestParam String name){
+    public Flux<AssetDTO> findByOwner(@RequestParam ("name") String name){
 
       log.info("----findByOwner----");
 
